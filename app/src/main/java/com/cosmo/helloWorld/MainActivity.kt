@@ -23,13 +23,13 @@ class MainActivity : Activity() {
             changeText("Hola Mateo!")
         }
 
-        timer = Timer();
+        timer = Timer()
     }
 
     fun changeText(newText: String) {
         Toast.makeText(
             this@MainActivity,
-            "Click " + newText + " !",
+            "Click $newText !",
             Toast.LENGTH_SHORT
         ).show()
 
@@ -37,9 +37,9 @@ class MainActivity : Activity() {
 
         val timerTask = object : TimerTask() {
             override fun run() {
-                this@MainActivity.runOnUiThread(Runnable {
+                this@MainActivity.runOnUiThread({
                     textView.setText(R.string.start_text)
-                });
+                })
             }
         }
         timer.schedule(timerTask, 4000)
